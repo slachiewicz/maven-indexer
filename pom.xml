@@ -94,7 +94,7 @@ under the License.
     <resolver.version>1.1.0</resolver.version>
     <truezip.version>7.7.10</truezip.version>
     <archetype.version>2.4</archetype.version>
-    <wagon.version>2.12</wagon.version>
+    <wagon.version>3.3.2</wagon.version>
 
     <maven.site.path>maven-indexer-archives/maven-indexer-LATEST</maven.site.path>
   </properties>
