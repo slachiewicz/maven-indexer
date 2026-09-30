@@ -18,11 +18,11 @@
  */
 package org.apache.maven.index.artifact;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import org.apache.maven.api.di.Named;
+import org.apache.maven.api.di.Singleton;
 
 /**
  * An M2 <code>GavCalculator</code>.

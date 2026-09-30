@@ -18,10 +18,6 @@
  */
 package org.apache.maven.index.updater;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -56,6 +52,9 @@ import org.apache.lucene.index.MultiBits;
 import org.apache.lucene.index.StoredFields;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.Bits;
+import org.apache.maven.api.annotations.Nullable;
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.DocumentFilter;
 import org.apache.maven.index.context.IndexUtils;
 import org.apache.maven.index.context.IndexingContext;
@@ -77,7 +76,6 @@ import org.slf4j.LoggerFactory;
  * @author Eugene Kuleshov
  */
 @Singleton
-@Named
 public class DefaultIndexUpdater implements IndexUpdater {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -92,7 +90,7 @@ public class DefaultIndexUpdater implements IndexUpdater {
 
     @Inject
     public DefaultIndexUpdater(
-            final IncrementalHandler incrementalHandler, final List<IndexUpdateSideEffect> sideEffects) {
+            final IncrementalHandler incrementalHandler, @Nullable final List<IndexUpdateSideEffect> sideEffects) {
         this.incrementalHandler = incrementalHandler;
         this.sideEffects = sideEffects;
     }

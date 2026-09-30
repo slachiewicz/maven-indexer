@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index.creator;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -30,6 +27,9 @@ import java.util.Collection;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StoredField;
+import org.apache.maven.api.di.Named;
+import org.apache.maven.api.di.Singleton;
+import org.apache.maven.api.model.Model;
 import org.apache.maven.index.ArtifactAvailability;
 import org.apache.maven.index.ArtifactContext;
 import org.apache.maven.index.ArtifactInfo;
@@ -43,7 +43,6 @@ import org.apache.maven.index.locator.Locator;
 import org.apache.maven.index.locator.Sha1Locator;
 import org.apache.maven.index.locator.SignatureLocator;
 import org.apache.maven.index.locator.SourcesLocator;
-import org.apache.maven.model.Model;
 import org.codehaus.plexus.util.FileUtils;
 import org.codehaus.plexus.util.StringUtils;
 

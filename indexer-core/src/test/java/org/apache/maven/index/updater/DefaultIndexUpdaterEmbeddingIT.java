@@ -25,7 +25,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.inject.Inject;
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.index.AbstractTestSupport;
 import org.apache.maven.index.Java11HttpClient;
 import org.apache.maven.index.context.DefaultIndexingContext;
 import org.apache.maven.index.context.IndexCreator;
@@ -33,7 +34,6 @@ import org.apache.maven.index.context.IndexingContext;
 import org.apache.maven.index.context.UnsupportedExistingLuceneIndexException;
 import org.apache.maven.index.updater.fixtures.ServerTestFixture;
 import org.codehaus.plexus.util.FileUtils;
-import org.eclipse.sisu.launch.InjectedTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,7 +42,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class DefaultIndexUpdaterEmbeddingIT extends InjectedTest {
+class DefaultIndexUpdaterEmbeddingIT extends AbstractTestSupport {
     private String baseUrl;
 
     private ServerTestFixture server;

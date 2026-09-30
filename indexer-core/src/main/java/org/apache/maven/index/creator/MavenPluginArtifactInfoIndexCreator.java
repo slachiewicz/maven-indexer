@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index.creator;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -33,6 +30,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import org.apache.lucene.document.Document;
+import org.apache.maven.api.di.Named;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.ArtifactContext;
 import org.apache.maven.index.ArtifactInfo;
 import org.apache.maven.index.IndexerField;

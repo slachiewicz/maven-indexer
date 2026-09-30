@@ -18,13 +18,12 @@
  */
 package org.apache.maven.index.util;
 
-import javax.inject.Inject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.maven.api.di.Inject;
 import org.apache.maven.index.AbstractTestSupport;
 import org.apache.maven.index.context.IndexCreator;
 import org.junit.jupiter.api.Test;

@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.IOException;
 import java.io.StringReader;
 
@@ -36,6 +33,7 @@ import org.apache.lucene.search.PrefixQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.WildcardQuery;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.NexusAnalyzer;
 import org.apache.maven.index.creator.JarFileContentsIndexCreator;
 import org.apache.maven.index.creator.MinimalArtifactInfoIndexCreator;
@@ -65,7 +63,6 @@ import org.slf4j.LoggerFactory;
  * @author Eugene Kuleshov
  */
 @Singleton
-@Named
 public class DefaultQueryCreator implements QueryCreator {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

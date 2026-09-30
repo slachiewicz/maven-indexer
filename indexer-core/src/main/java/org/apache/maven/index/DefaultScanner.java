@@ -18,16 +18,14 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.IndexingContext;
 
 /**
@@ -37,7 +35,6 @@ import org.apache.maven.index.context.IndexingContext;
  * @author Tamas Cservenak
  */
 @Singleton
-@Named
 public class DefaultScanner implements Scanner {
 
     private final ArtifactContextProducer artifactContextProducer;
