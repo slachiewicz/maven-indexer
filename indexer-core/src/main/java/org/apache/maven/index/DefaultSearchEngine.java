@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +36,7 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.TopScoreDocCollectorManager;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.IndexUtils;
 import org.apache.maven.index.context.IndexingContext;
 import org.apache.maven.index.context.NexusIndexMultiReader;
@@ -53,7 +51,6 @@ import org.slf4j.LoggerFactory;
  * @author Tamas Cservenak
  */
 @Singleton
-@Named
 public class DefaultSearchEngine implements SearchEngine {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

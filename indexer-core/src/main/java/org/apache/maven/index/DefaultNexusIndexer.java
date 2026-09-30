@@ -18,10 +18,6 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -36,6 +32,8 @@ import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.ContextMemberProvider;
 import org.apache.maven.index.context.DefaultIndexingContext;
 import org.apache.maven.index.context.ExistingLuceneIndexMismatchException;
@@ -61,7 +59,6 @@ import org.codehaus.plexus.util.FileUtils;
  */
 @Deprecated
 @Singleton
-@Named
 public class DefaultNexusIndexer implements NexusIndexer {
 
     private final Indexer indexer;

@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +31,7 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.IndexingContext;
 import org.apache.maven.index.creator.MinimalArtifactInfoIndexCreator;
 
@@ -43,7 +41,6 @@ import org.apache.maven.index.creator.MinimalArtifactInfoIndexCreator;
  * @author Tamas Cservenak
  */
 @Singleton
-@Named
 public class DefaultIndexerEngine implements IndexerEngine {
 
     public void index(IndexingContext context, ArtifactContext ac) throws IOException {

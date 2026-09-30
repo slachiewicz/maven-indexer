@@ -18,10 +18,6 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,6 +32,8 @@ import java.util.Set;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.Query;
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.ContextMemberProvider;
 import org.apache.maven.index.context.DefaultIndexingContext;
 import org.apache.maven.index.context.ExistingLuceneIndexMismatchException;
@@ -53,7 +51,6 @@ import org.apache.maven.index.util.IndexCreatorSorter;
  * @author Tamas Cservenak
  */
 @Singleton
-@Named
 public class DefaultIndexer implements Indexer {
 
     private final SearchEngine searcher;

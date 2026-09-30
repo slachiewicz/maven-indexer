@@ -18,17 +18,18 @@
  */
 package org.apache.maven.index.locator;
 
+import javax.xml.stream.XMLStreamException;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 
+import org.apache.maven.api.model.Model;
 import org.apache.maven.index.artifact.ArtifactPackagingMapper;
 import org.apache.maven.index.artifact.Gav;
 import org.apache.maven.index.artifact.GavCalculator;
-import org.apache.maven.model.Model;
-import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.apache.maven.model.v4.MavenStaxReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,7 +60,7 @@ public class ArtifactLocator implements GavHelpedLocator {
 
         try (InputStream inputStream = Files.newInputStream(source.toPath())) {
             // need to read the pom model to get packaging
-            final Model model = new MavenXpp3Reader().read(inputStream, false);
+            final Model model = new MavenStaxReader().read(inputStream, false, null);
 
             if (model == null) {
                 return null;
@@ -81,7 +82,7 @@ public class ArtifactLocator implements GavHelpedLocator {
             }
 
             return artifact;
-        } catch (XmlPullParserException | IOException e) {
+        } catch (XMLStreamException | IOException e) {
             LOGGER.warn("skip error reading pom from file:" + source, e);
             return null;
         }

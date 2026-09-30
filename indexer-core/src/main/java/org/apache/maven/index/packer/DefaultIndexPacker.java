@@ -18,10 +18,6 @@
  */
 package org.apache.maven.index.packer;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +29,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.TimeZone;
 
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.context.IndexingContext;
 import org.apache.maven.index.incremental.IncrementalHandler;
 import org.apache.maven.index.updater.IndexDataWriter;
@@ -47,7 +45,6 @@ import org.slf4j.LoggerFactory;
  * @author Eugene Kuleshov
  */
 @Singleton
-@Named
 public class DefaultIndexPacker implements IndexPacker {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

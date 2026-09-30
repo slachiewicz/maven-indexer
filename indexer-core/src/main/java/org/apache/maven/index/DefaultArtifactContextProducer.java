@@ -18,12 +18,10 @@
  */
 package org.apache.maven.index;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.artifact.ArtifactPackagingMapper;
 import org.apache.maven.index.artifact.Gav;
 import org.apache.maven.index.context.IndexingContext;
@@ -41,7 +39,6 @@ import org.codehaus.plexus.util.StringUtils;
  * @author Eugene Kuleshov
  */
 @Singleton
-@Named
 public class DefaultArtifactContextProducer implements ArtifactContextProducer {
 
     private final ArtifactPackagingMapper mapper;

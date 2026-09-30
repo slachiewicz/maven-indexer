@@ -18,6 +18,8 @@
  */
 package org.apache.maven.index;
 
+import javax.xml.stream.XMLStreamException;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,12 +34,11 @@ import java.util.zip.ZipFile;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StoredField;
+import org.apache.maven.api.model.Model;
 import org.apache.maven.index.artifact.Gav;
 import org.apache.maven.index.context.IndexCreator;
 import org.apache.maven.index.context.IndexingContext;
-import org.apache.maven.model.Model;
-import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.apache.maven.model.v4.MavenStaxReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,8 +99,8 @@ public class ArtifactContext {
         File pom = getPom();
         if (pom != null && pom.isFile()) {
             try (InputStream inputStream = Files.newInputStream(pom.toPath())) {
-                return new MavenXpp3Reader().read(inputStream, false);
-            } catch (IOException | XmlPullParserException e) {
+                return new MavenStaxReader().read(inputStream, false, null);
+            } catch (IOException | XMLStreamException e) {
                 LOGGER.warn("skip error reading pom: " + pom, e);
             }
         }
@@ -115,10 +116,10 @@ public class ArtifactContext {
 
                 if (zipEntry != null) {
                     try (InputStream inputStream = zipFile.getInputStream(zipEntry)) {
-                        return new MavenXpp3Reader().read(inputStream, false);
+                        return new MavenStaxReader().read(inputStream, false, null);
                     }
                 }
-            } catch (IOException | XmlPullParserException e) {
+            } catch (IOException | XMLStreamException e) {
                 if (e instanceof ZipException && !isZip) {
                     // ZipFile constructor threw ZipException which means this is no zip file -> ignore
                 } else {

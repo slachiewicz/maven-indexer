@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index.incremental;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -41,6 +38,7 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.MultiBits;
 import org.apache.lucene.index.StoredFields;
 import org.apache.lucene.util.Bits;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.ArtifactInfo;
 import org.apache.maven.index.context.IndexingContext;
 import org.apache.maven.index.packer.IndexPackingRequest;
@@ -50,7 +48,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Singleton
-@Named
 public class DefaultIncrementalHandler implements IncrementalHandler {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

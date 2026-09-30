@@ -18,9 +18,6 @@
  */
 package org.apache.maven.index.artifact;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.maven.api.di.Singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +38,6 @@ import org.slf4j.LoggerFactory;
  * @author cstamas
  */
 @Singleton
-@Named
 public class DefaultArtifactPackagingMapper implements ArtifactPackagingMapper {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

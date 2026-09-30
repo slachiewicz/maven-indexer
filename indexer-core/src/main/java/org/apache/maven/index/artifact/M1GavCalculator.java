@@ -18,11 +18,11 @@
  */
 package org.apache.maven.index.artifact;
 
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.apache.maven.api.di.Named;
+import org.apache.maven.api.di.Singleton;
 
 /**
  * An M1 <code>GavCalculator</code>. Heavily under-maintained.

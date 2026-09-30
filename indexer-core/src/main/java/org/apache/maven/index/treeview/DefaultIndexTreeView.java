@@ -18,10 +18,6 @@
  */
 package org.apache.maven.index.treeview;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,6 +27,8 @@ import java.util.Set;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.Query;
+import org.apache.maven.api.di.Inject;
+import org.apache.maven.api.di.Singleton;
 import org.apache.maven.index.ArtifactInfo;
 import org.apache.maven.index.Field;
 import org.apache.maven.index.Indexer;
@@ -42,7 +40,6 @@ import org.apache.maven.index.treeview.TreeNode.Type;
 import org.codehaus.plexus.util.StringUtils;
 
 @Singleton
-@Named
 public class DefaultIndexTreeView implements IndexTreeView {
 
     private final Indexer indexer;

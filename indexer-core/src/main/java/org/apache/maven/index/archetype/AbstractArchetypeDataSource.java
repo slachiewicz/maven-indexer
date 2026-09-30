@@ -18,14 +18,13 @@
  */
 package org.apache.maven.index.archetype;
 
-import javax.inject.Inject;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.lucene.search.Query;
+import org.apache.maven.api.di.Inject;
 import org.apache.maven.archetype.catalog.Archetype;
 import org.apache.maven.archetype.catalog.ArchetypeCatalog;
 import org.apache.maven.index.ArtifactInfo;
